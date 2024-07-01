@@ -23,9 +23,9 @@ func reverseString(s string) string {
 }
 
 func run_part_2() {
-    ciphertextHex := "aqui_colocar_o_ciphertext_em_hexadecimal"
-    sigCHex := "aqui_colocar_a_assinatura_em_hexadecimal"
-    chaveHex := "aqui_colocar_a_chave_aes_em_hexadecimal"
+    ciphertextHex := "aqui_colocar_o_ciphertext_em_hexadecimal" // Pode ser uma boa recerber por input do user com o Bubbletea
+    sigCHex := "aqui_colocar_a_assinatura_em_hexadecimal" // Pode ser uma boa recerber por input do user com o Bubbletea
+    chaveHex := "aqui_colocar_a_chave_aes_em_hexadecimal" // Pode ser uma boa recerber por input do user com o Bubbletea
 
     ciphertext, _ := hex.DecodeString(ciphertextHex)
     sigC, _ := hex.DecodeString(sigCHex)
@@ -35,7 +35,7 @@ func run_part_2() {
     ciphertext = ciphertext[16:]
 
     epHex := "2E76A0094D4CEE0AC516CA162973C895"
-    NpHex := "aqui_colocar_o_modulo_Np_em_hexadecimal"
+    NpHex := "aqui_colocar_o_modulo_Np_em_hexadecimal" // Pode ser uma boa recerber por input do user com o Bubbletea
     ep := new(big.Int)
     ep.SetString(epHex, 16)
     Np := new(big.Int)
@@ -79,11 +79,12 @@ func run_part_2() {
     ciphertextFinal := append(ivNew, ciphertextNew...)
 
     hashedNew := sha256.Sum256(ciphertextFinal)
+	// Pode ser uma boa recerber por input do user com o Bubbletea
     privateKey := &rsa.PrivateKey{
-        D: new(big.Int).SetInt64(0), // Aqui colocar o valor de D
+        D: new(big.Int).SetInt64(0), // Colocar o valor de D
         Primes: []*big.Int{
-            new(big.Int).SetInt64(0), // Aqui colocar o valor de p
-            new(big.Int).SetInt64(0), // Aqui colocar o valor de q
+            new(big.Int).SetInt64(0), // Colocar o valor de p
+            new(big.Int).SetInt64(0), // Colocar o valor de q
         },
     }
 	
