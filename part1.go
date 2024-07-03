@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"math/big"
+	"os"
 )
 
 func generatePrime(bits int) (*big.Int, error) {
@@ -25,7 +26,7 @@ func run_part_1(ep *big.Int, Np *big.Int) {
 	L := new(big.Int).Mul(pMinus1, qMinus1)
 
 	// MDC(e, L) = 1
-	e := big.NewInt(65537)
+	e := big.NewInt(65539)
 	for new(big.Int).GCD(nil, nil, e, L).Cmp(big.NewInt(1)) != 0 {
 		e.Add(e, big.NewInt(2))
 	}
@@ -54,4 +55,10 @@ func run_part_1(ep *big.Int, Np *big.Int) {
 	fmt.Println("sigx: ", sigxHex)
 	fmt.Println("pka: ", pkaHex)
 	fmt.Print("************ FIM ****************\n\n\n")
+	fmt.Println("Valor de s: ", s)
+
+	// Cria e salva o valor de s em um arquivo .txt
+	f, _ := os.Create("s.txt")
+	defer f.Close()
+	f.WriteString(hex.EncodeToString(s))
 }

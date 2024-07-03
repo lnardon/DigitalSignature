@@ -13,9 +13,9 @@ func main() {
     Np.SetString(NpHex, 16)
 
 	// TODO: Fazer uma UI para o usuário inserir os valores e escolher o que rodar, talvez usando o pacote de GO, BubbleTea. (Parte 1, Parte 2 ou ambas).
-	fmt.Print("||||||||||||||||  Parte 1!   ||||||||||||||||\n\n")
-	run_part_1(ep, Np)
-	fmt.Println("FIM (Parte 1)")
+	// fmt.Print("||||||||||||||||  Parte 1!   ||||||||||||||||\n\n")
+	// run_part_1(ep, Np)
+	// fmt.Println("FIM (Parte 1)")
 
 	fmt.Print("\n\n\n||||||||||||||||  Parte 2!  ||||||||||||||||\n\n")
 	run_part_2()
